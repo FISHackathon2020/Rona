@@ -1,6 +1,6 @@
 const log = require('../modules/logger').create("student")
 const to_json = require('../modules/to_json')
-const store = require('../modules/store')
+
 module.exports = (app) => {
     find_by_id = (id) => {
         for (let item of store.students)
@@ -25,6 +25,16 @@ module.exports = (app) => {
         res.send( {id: student.id} )
         log.debug(`Added new student: ${student.id}`)
     })
+
+    app.post('/students/add', (req, res) => {
+        student = new t.Student()
+        // TODO
+        res.cookie("last-student-created", student.id)
+    })
+
+    //app.post('/students/add/specific')
+
+    //app.post('/students/add/job')
 
     app.get('/students/:id', (req, res) => {
         student = find_by_id(req.params.id)

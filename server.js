@@ -2,7 +2,6 @@ const saveload = require("./modules/saveload")
 const log = require("./modules/logger").create("server")
 const express = require("express")
 const to_json = require("./modules/to_json")
-const store = require("./modules/store")
 
 log.info("Starting...")
 var app = express()
@@ -13,6 +12,8 @@ if (saveload.exists())
 else
     global.store = require("./modules/store")
 global.t = require("./modules/types")
+
+log.trace("OPERATING ON STORE: " + to_json(store))
 
 // Util function to delete a value from an array
 Array.prototype.rm = function(value){
@@ -45,6 +46,12 @@ app.use((req, res, next) => {
 // Wire up the various endpoints
 app.get("/", (req, res) => res.send(to_json(store)))
 require("./routers/student")(app)
+
+// To mark interest:
+// GET BACKEND/students/<STUDENT_ID>/tag_job?interest=y&jobid=<JOB_ID>
+// To mark disinterest:
+// GET BACKEND/students/<STUDENT_ID>/tag_job?interest=n&jobid=<JOB_ID>
+
 
 // Start the server
 const PORT = 8081

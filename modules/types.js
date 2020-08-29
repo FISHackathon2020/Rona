@@ -92,10 +92,11 @@ class JobOffer {
         this.salary = UNSET
         this.location = UNSET
         this.dresscode = UNSET
-        this.atmosphere = UNSET // busy, professional, casual, etc, etc
+        this.atmosphere = [] // busy, professional, casual, etc, etc
         this.employer = UNSET
         this.recruiters = []
         this.fields = []
+        this.interested_students = []
     }
 }
 module.exports.JobOffer = JobOffer
