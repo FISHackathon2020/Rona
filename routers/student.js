@@ -1,5 +1,6 @@
 const log = require('../modules/logger').create("student")
 const to_json = require('../modules/to_json')
+const store = require('../modules/store')
 module.exports = (app) => {
     find_by_id = (id) => {
         for (let item of store.students)
@@ -18,7 +19,7 @@ module.exports = (app) => {
 
         student.name = req.query.name
 
-        store.students.add(student)
+        store.students.push(student)
         store.tainted = true
 
         res.send( {id: student.id} )
@@ -38,6 +39,9 @@ module.exports = (app) => {
     })
 
     app.get('/students/:id/delete', (req, res) => {
+        student = find_by_id(req.params.id)
+        store.students.rm(student)
 
+        // TODO
     })
 }

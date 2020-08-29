@@ -1,0 +1,4 @@
+t=require("./modules/types");saveload=require("./modules/saveload");to_json=require("./modules/to_json");store=saveload.load()
+find_by_id = (id) => {for (let item of store.students) if (item.id == id) return item;return undefined;}
+
+

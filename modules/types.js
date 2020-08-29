@@ -2,11 +2,15 @@ function genid() {
     return Math.random().toString(36).substring(2, 10)
 }
 
+const UNSET = "UNSET"
+
 // Not private so that it can be check in to_json
 class Profile {
     constructor() {
         this.id = genid()
-        this.name = undefined // String
+        this.name = UNSET // String
+        this.profile_picture = UNSET // URI
+        this.profile_banner = UNSET // URI
     }
 }
 module.exports.Profile = Profile
@@ -15,25 +19,21 @@ module.exports.Profile = Profile
 class Person extends Profile {
     constructor() {
         super()
-        this.phone_number = undefined
-        this.email = undefined
-        this.interests = new Set() // Set of string
-        this.skills = new Set()    // Set of string
-        this.member_of = new Set() // Set of Org
-        this.friends = new Set()   // Set of Person
-    }
-
-    destroy() {
-       console.log("Destroying person")
+        this.phone_number = UNSET
+        this.email = UNSET
+        this.interests = [] // Set of string
+        this.skills = []    // Set of string
+        this.member_of = [] // Set of Org
+        this.friends = []   // Set of Person
     }
 }
 
 class Student extends Person {
     constructor() {
         super()
-        this.clubs = new Set()  // Set of Club
-        this.major = undefined  // String
-        this.school = undefined // University
+        this.clubs = []  // Set of Club
+        this.major = UNSET  // String
+        this.school = UNSET // University
     }
 }
 module.exports.Student = Student
@@ -41,9 +41,9 @@ module.exports.Student = Student
 class Recruiter extends Person {
     constructor() {
         super()
-        this.manages = new Set() // Set of JobOffer
-        this.company = undefined // The company they are recruiting for
-        this.fields = new Set()  // The fields that the recruiter specializes in
+        this.manages = [] // Set of JobOffer
+        this.company = UNSET // The company they are recruiting for
+        this.fields = []  // The fields that the recruiter specializes in
     }
 }
 module.exports.Recruiter = Recruiter
@@ -52,15 +52,15 @@ module.exports.Recruiter = Recruiter
 class Org extends Profile {
     constructor() {
         super()
-        this.members = new Set() // Set of Person
+        this.members = [] // Set of Person
     }
 }
 
 class Club extends Org {
     constructor() {
         super()
-        this.fields = new Set()     // Is this club related to CS, video games, art, etc
-        this.university = undefined // The university this club belongs to
+        this.fields = []     // Is this club related to CS, video games, art, etc
+        this.university = UNSET // The university this club belongs to
     }
 }
 module.exports.Club = Club
@@ -68,8 +68,8 @@ module.exports.Club = Club
 class University extends Org {
     constructor() {
         super()
-        this.majors = new Set()
-        this.clubs = new Set()
+        this.majors = []
+        this.clubs = []
         this.students = new Student()
     }
 }
@@ -78,24 +78,24 @@ module.exports.University = University
 class Employer extends Org {
     constructor() {
         super()
-        this.employees = new Set()
-        this.recruiters = new Set()
-        this.offers = new Set()
+        this.employees = []
+        this.recruiters = []
+        this.offers = []
     }
 }
 module.exports.Employer = Employer
 
 class JobOffer {
     constructor() {
-        this.name = undefined
-        this.hours = new Set()
-        this.salary = undefined
-        this.location = undefined
-        this.dresscode = undefined
-        this.atmosphere = undefined // busy, professional, casual, etc, etc
-        this.employer = undefined
-        this.recruiters = new Set()
-        this.fields = new Set()
+        this.name = UNSET
+        this.hours = []
+        this.salary = UNSET
+        this.location = UNSET
+        this.dresscode = UNSET
+        this.atmosphere = UNSET // busy, professional, casual, etc, etc
+        this.employer = UNSET
+        this.recruiters = []
+        this.fields = []
     }
 }
 module.exports.JobOffer = JobOffer
