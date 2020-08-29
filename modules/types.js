@@ -2,13 +2,14 @@ function genid() {
     return Math.random().toString(36).substring(2, 10)
 }
 
-// Private
+// Not private so that it can be check in to_json
 class Profile {
     constructor() {
         this.id = genid()
         this.name = undefined // String
     }
 }
+module.exports.Profile = Profile
 
 // Private
 class Person extends Profile {
