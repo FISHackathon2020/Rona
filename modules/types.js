@@ -34,6 +34,11 @@ class Student extends Person {
         this.clubs = []  // Set of Club
         this.major = UNSET  // String
         this.school = UNSET // University
+        this.grad_year = UNSET
+
+        this.expected_pay = UNSET
+        this.experience = UNSET
+        this.pref_atmosphere = []
     }
 }
 module.exports.Student = Student
@@ -87,6 +92,7 @@ module.exports.Employer = Employer
 
 class JobOffer {
     constructor() {
+        this.id = genid()
         this.name = UNSET
         this.hours = []
         this.salary = UNSET

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Swipe Right</title>
+    <!-- <link rel="stylesheet" href="swipestyle.css"> -->
+</head>
+
+<body>
+    <p id="instructions"><strong>Create your profile below!</strong></p>
+
+<!-- Form for basic Profile Information, next page is specific.html -->
+<aform action="specific.html">
+    <form action="http://localhost:8081/students/add" method="get">
+        <p class="space">
+            Name: <input type="text" id="name" name="name">
+        </p>
+        <p class="space">
+            School: <input type="text" id="school" name="school">
+        <p>
+        <p class="space">
+            Graduation Year: <input type="number" id="grad-year" name="gradyear" min="2020" max="2050">
+        </p>
+        <p class="space">
+            Enter your School Email: <input type="email" id="email" name="email">
+        </p>
+        <p class="space">
+            Select resume: <input type="file" id="img" name="img" accept="image/*">
+        </p>
+        <p class="space">
+            <a href="specific.html"><input type="submit" value="Continue"></a>
+        </p>
+    </form>
+</aform>
+</div>
+
+</body>
+</html>
