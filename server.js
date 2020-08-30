@@ -58,5 +58,5 @@ app.use("/job_offers", require("./routers/jobs"))
 // GET BACKEND/students/<STUDENT_ID>/tag_job?interest=n&jobid=<JOB_ID>
 
 // Start the server
-const PORT = 8081
+const PORT = 81
 app.listen(PORT, () => log.info(`Listening on port ${PORT}`))
