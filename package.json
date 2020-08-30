@@ -1,7 +1,7 @@
 {
-  "name": "hackathon",
+  "name": "swipe-right",
   "version": "0.0.0",
-  "description": "Backend for our submission for the 2020 FIS Hackathon",
+  "description": "Team Rona's submission for the 2020 FIS Hackathon",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -12,20 +12,19 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./start.sh"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FISHackathon2020/TeamC.git"
+    "url": "git+https://github.com/FISHackathon2020/Rona.git"
   },
   "keywords": [
     "hackathon",
     "fis"
   ],
-  "author": "Adrian Vovk",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FISHackathon2020/TeamC/issues"
+    "url": "https://github.com/FISHackathon2020/Rona/issues"
   },
-  "homepage": "https://github.com/FISHackathon2020/TeamC#readme"
+  "homepage": "https://github.com/FISHackathon2020/Rona#readme"
 }
