@@ -34,7 +34,7 @@ router.get("/add", (req, res) => {
     laststudent = student
 
     //res.send( { id: student.id } )
-    res.redirect('http://localhost:8000/specific.html')
+    res.redirect('../../specific.html')
     log.debug(`Added new student: ${student.id}`)
 })
 
@@ -52,7 +52,7 @@ router.get("/add/specific", (req, res) => {
     if (req.query.alg == "on") student.skills.push("alg")
     if (req.query.dat == "on") student.skills.push("dat")
 
-    res.redirect('http://localhost:8000/job.html')
+    res.redirect('../../../job.html')
     log.debug(`Extended student: ${student.id}`)
 })
 
@@ -69,7 +69,7 @@ router.get("/add/job", (req, res) => {
     if (req.query.flex == "on") student.pref_atmosphere.push("flex")
 
     store.tainted = true // Write the changes to disk
-    res.redirect('http://localhost:8000/swipe.html')
+    res.redirect('../../../swipe.html')
     log.debug(`Finalized student: ${student.id}`)
 })
 

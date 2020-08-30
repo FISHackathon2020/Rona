@@ -39,7 +39,7 @@ setInterval(() => {
 }, 1000)
 
 // Just assume anything we'll be sending back is JSON
-app.use((req, res, next) => {
+app.use('/api', (req, res, next) => {
     res.set("Content-Type", "application/json")
     next()
 })
@@ -48,9 +48,10 @@ app.use((req, res, next) => {
 //app.use(parser.urlencoded({extended: true}))
 
 // Wire up the various endpoints
-app.get("/", (req, res) => res.send(to_json(store)))
-app.use("/students", require("./routers/students"))
-app.use("/job_offers", require("./routers/jobs"))
+app.use(express.static("static"))
+//app.get("/", (req, res) => res.send(to_json(store)))
+app.use("/api/students", require("./routers/students"))
+//app.use("/api/job_offers", require("./routers/jobs"))
 
 // To mark interest:
 // GET BACKEND/students/<STUDENT_ID>/tag_job?interest=y&jobid=<JOB_ID>
@@ -58,5 +59,8 @@ app.use("/job_offers", require("./routers/jobs"))
 // GET BACKEND/students/<STUDENT_ID>/tag_job?interest=n&jobid=<JOB_ID>
 
 // Start the server
-const PORT = 81
-app.listen(PORT, () => log.info(`Listening on port ${PORT}`))
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port, () => log.info(`Listening on port ${port}`));

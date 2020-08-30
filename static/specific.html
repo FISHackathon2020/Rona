@@ -3,7 +3,6 @@
 <head>
     <title>Swipe Right</title>
     <!-- <link rel="stylesheet" href="swipestyle.css"> -->
-    <script src="http://localhost:8081/students/lastidhack.js"></script>
 </head>
 
 <body>
@@ -11,7 +10,7 @@
 
 <!-- Form for more specfic Profile Information then redirects you to your best picks, next page is job.html -->
 <aform action="job.html">
-    <form action="http://localhost:8081/students/add/specific" method="get">
+    <form action="api/students/add/specific" method="get">
         <input type="text" id="lastidhack" name="studentid" style="display: none">
         <p class="space">
             Phone Number (ex: 123-456-7890): <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
